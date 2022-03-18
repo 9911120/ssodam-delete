@@ -96,18 +96,23 @@ function App() {
             alert("삭제할 글이 없어요");
             return false;
         } else {
-            if (window.confirm("삭제하려는 글 개수만큼 서담 사이트가 새로 열려요. 3초 후에 자동으로 꺼지니 조금만 기다려주세요 ㅎㅎ")) {
-                let new_popup = [];
-                for (let i = 0; i < value.split(",").length; i++) {
-                    new_popup.push(window.open('http://ssodam.com/delete/'+value.split(",")[i], '_blank'));
-                }
-                setTimeout(()=>{
-                    for (let i = 0; i < new_popup.length; i++) {
-                        new_popup[i].close();
-                    }
-                },3000);
-            } else {
+            if (value.split(",").length > 19) {
+                alert("서담의 서버 안정성을 위해 한번에 20개 이상 삭제할 수 없어요.");
                 return false;
+            } else {
+                if (window.confirm("삭제하려는 글 개수만큼 서담 사이트가 새로 열려요. 3초 후에 자동으로 꺼지니 조금만 기다려주세요 ㅎㅎ")) {
+                    let new_popup = [];
+                    for (let i = 0; i < value.split(",").length; i++) {
+                        new_popup.push(window.open('http://ssodam.com/delete/'+value.split(",")[i], '_blank'));
+                    }
+                    setTimeout(()=>{
+                        for (let i = 0; i < new_popup.length; i++) {
+                            new_popup[i].close();
+                        }
+                    },3000);
+                } else {
+                    return false;
+                }
             }
         }
     }
