@@ -6,7 +6,7 @@ const reset = css`
         font-weight: 45 920;
         font-style: normal;
         font-display: swap;
-        src: local('Pretendard Variable'), url('/fonts/Pretendard/PretendardVariable.woff2') format('woff2-variations');
+        src: local('Pretendard Variable'), url('/ssodam-delete/fonts/Pretendard/PretendardVariable.woff2') format('woff2-variations');
     }
     * {
         font-family: 'Pretendard Variable', sans-serif;
